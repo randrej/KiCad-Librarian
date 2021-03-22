@@ -2,7 +2,7 @@
 #brief Crystal or oscillator, counter-clockwise pin numbering
 #note 2-pin and 4-pin variants in counter-clockwise numbering, SMD version
 #pins 2 4
-#param 4 @?PT \
+#param 4 @?PT    "rect" @PSH \
 #      2.2 @PP   4.2 @SH   1.6 @PW   1.4 @PL   0.2 @BP   0.65 @TS   15 @TW   0.1 @STP \
 #      5.2 @BW   3.4 @BL
 #flags rebuild
@@ -22,7 +22,7 @@ At SMD
 {TSR abs @TSR   TSV abs @TSV   TW 100 / TSR * @TRpen   TW 100 / TSV * @TVpen}
 T0 0 {PP PL + -0.5 * TSR - BP -} {TSR} {TSR} 0 {TRpen} N {TRvis} 21 N "REF**"
 T1 0 {PP PL + 0.5 * TSV +} {TSV} {TSV} 0 {TVpen} N {TVvis} 21 N "VAL**"
-{BW 2 / ~ BP 2 * - @T2X   PT -0.25 * 0.5 + PP * PL - BP - @T2Y}
+{BW 2 / ~ BP 2 * - @T2X   PT 4 / round -2 / PP * PL - @T2Y}
 {? BW 2 <}{T2Y BP 4 * + @T2Y}
 T2 {T2X} {T2Y} {BP 2 *} {BP 2 *} 0 {BP 2 /} N V 21 N "○"
 {BW 2 / @X2   X2 ~ @X1   BL 2 / @Y2   Y2 ~ @Y1}
@@ -45,7 +45,8 @@ DS {X1} {Y1} {X1} {Y2} {BP} 21
 DS {X2} {Y1} {X2} {Y2} {BP} 21
 :VERLINES
 $PAD
-Sh "{PN}" R {PW} {PL} 0 0 0
+{?PRR 0 <}Sh "{PN}" {PSH} {PW} {PL} 0 0 0
+{?PRR 0 >=}Sh "{PN}" {PSH} {PW} {PL} 0 0 0 {PRR}
 Dr 0 0 0
 At SMD N 00888000
 Ne 0 ""

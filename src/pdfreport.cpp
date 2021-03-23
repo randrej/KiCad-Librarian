@@ -920,7 +920,7 @@ bool PdfReport::SymbolReport(wxWindow* parent, const wxString& library, const wx
     }
     progress.Update(++progresspos);
   }
-  list.Sort(CompareFootprint);
+  list.Sort();
 
   /* now make a run to create the cross-reference */
   struct tagXREF {

@@ -804,7 +804,7 @@ bool PdfReport::FootprintReport(wxWindow* parent, const wxString& library, const
 
   if (PrintIndex) {
       /* sort the index */
-      wxSortedArrayString SortedIndex();
+      wxSortedArrayString SortedIndex;
       for (wxStringToStringHashMap::iterator iter = FootprintIndex.begin(); iter != FootprintIndex.end(); iter++) {
         wxString line = iter->first + wxT(" : ") + iter->second;
         SortedIndex.Add(line);

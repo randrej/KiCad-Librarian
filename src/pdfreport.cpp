@@ -32,6 +32,9 @@
 #include <wx/tokenzr.h>
 #include "svnrev.h"
 
+#if !defined wxOVERRIDE
+    #define wxOVERRIDE override
+#endif
 
 #if !defined M_PI
     #define M_PI 3.14159265358979323846

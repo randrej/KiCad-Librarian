@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
- <mime-type type="application/x-binary">
-    <sub-class-of type="application/xml"/>
-    <comment>KiCad Librarian</comment>
-    <icon>kicadlibrarian32</icon>
-    <root-XML localName="kicadlibrarian" />
-  </mime-type>
- </mime-info>
-
+    <mime-type type="application/x-kicadlibrarian-item">
+        <sub-class-of type="application/xml" />
+        <comment>KiCad Librarian</comment>
+        <icon>kicadlibrarian32</icon>
+        <glob pattern="*.kicadlibrarian" />
+    </mime-type>
+</mime-info>

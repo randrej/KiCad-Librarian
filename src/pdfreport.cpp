@@ -804,7 +804,7 @@ bool PdfReport::FootprintReport(wxWindow* parent, const wxString& library, const
 
   if (PrintIndex) {
       /* sort the index */
-      wxSortedArrayString SortedIndex(CompareFootprint);
+      wxSortedArrayString SortedIndex();
       for (wxStringToStringHashMap::iterator iter = FootprintIndex.begin(); iter != FootprintIndex.end(); iter++) {
         wxString line = iter->first + wxT(" : ") + iter->second;
         SortedIndex.Add(line);
@@ -917,7 +917,7 @@ bool PdfReport::SymbolReport(wxWindow* parent, const wxString& library, const wx
     }
     progress.Update(++progresspos);
   }
-  list.Sort();
+  list.Sort(CompareFootprint);
 
   /* now make a run to create the cross-reference */
   struct tagXREF {
